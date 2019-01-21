@@ -1,11 +1,9 @@
 <template>
   <div class="accept-container">
     <el-tabs v-model="docId" tab-position="top" @tab-click="clickTab">
-      <div v-for="item in swaggerList">
-        <el-tab-pane :label="item.label" :name="item.name">
+      <el-tab-pane v-for="item in swaggerList" :label="item.label" :name="item.name">
           <iframe :style="{width:rightContentWidth, minHeight: mainContentHeight}" frameborder=0 scrolling=auto :src="item.link"></iframe>
-        </el-tab-pane>
-      </div>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -15,8 +13,13 @@
     name: 'swagger-ui',
     data () {
       return {
-        docId: 'swagger-mdc-id',
+        docId: 'swagger-api-id',
         swaggerList: [
+		  {
+            label: '汇合网关-接口文档',
+            name: 'swagger-api-id',
+            link: 'http://api.paascloud.net/swagger-ui.html'
+          },
           {
             label: '用户中心-接口文档',
             name: 'swagger-uac-id',

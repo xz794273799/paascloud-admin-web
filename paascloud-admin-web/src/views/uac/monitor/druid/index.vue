@@ -1,12 +1,11 @@
 <template>
   <div class="accept-container">
     <el-tabs :value="docId" tab-position="top" @tab-click="clickTab">
-      <div v-for="(item, index) in druidList" :key="docId">
-        <el-tab-pane :key="index" :label="item.label" :name="item.name">
+        <el-tab-pane v-for="(item, index) in druidList" :key="item.name" :label="item.label" :name="item.name">
           <iframe :style="{width:rightContentWidth, minHeight: mainContentHeight}" frameborder=0 scrolling=auto :src="item.link"></iframe>
         </el-tab-pane>
-      </div>
     </el-tabs>
+  </el-tabs>
   </div>
 </template>
 
@@ -15,7 +14,7 @@
     name: 'druid-ui',
     data () {
       return {
-        docId: 'druid-mdc-id',
+        docId: 'druid-uac-id',
         druidList: [
           {
             label: '用户中心-数据源',
